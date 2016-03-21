@@ -43,4 +43,10 @@ public class PlayerHealth : MonoBehaviour
 
         playerMovement.enabled = false;
     }
+
+    public void RestartLevel()
+    {
+        //调用当前已经调用的场景
+        Application.LoadLevel(Application.loadedLevel);
+    }
 }
