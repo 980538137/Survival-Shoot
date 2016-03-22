@@ -66,7 +66,7 @@ public class PlayerShooting : MonoBehaviour
             EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
             if (enemyHealth != null)//如果EnemyHealth不为空，说明碰到敌人，
             {
-                enemyHealth.TakeDamage(damagePerShot);
+                enemyHealth.TakeDamage(damagePerShot,shootHit.point);
             }
 
             gunLine.SetPosition(1, shootHit.point);//设置线渲染器的第二个点的位置信息
