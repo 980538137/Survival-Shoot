@@ -86,6 +86,60 @@ NavMeshSettings:
     cellSize: .25
     manualCellSize: 0
   m_NavMeshData: {fileID: 23800000, guid: 7d46cd35a6856d24c8b39ac1f99bfc81, type: 2}
+--- !u!1 &423734712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 423734713}
+  m_Layer: 0
+  m_Name: HellephantSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &423734713
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 423734712}
+  m_LocalRotation: {x: 0, y: .999815702, z: 0, w: .0191973131}
+  m_LocalPosition: {x: -3.79999995, y: 0, z: 34.9000015}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+--- !u!1 &569067383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 569067384}
+  m_Layer: 0
+  m_Name: ZomBunnySpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &569067384
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 569067383}
+  m_LocalRotation: {x: 0, y: .932007909, z: 0, w: .362437934}
+  m_LocalPosition: {x: -20.8500004, y: 0, z: 12.6000004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
 --- !u!1 &576839160
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,6 +192,12 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 401206, guid: d264cd680c2b6db4dbd49bde4335c43b, type: 2}
   m_PrefabInternal: {fileID: 1735736006}
+--- !u!114 &670017071 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11477474, guid: d264cd680c2b6db4dbd49bde4335c43b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1735736006}
+  m_Script: {fileID: 11500000, guid: 544f2064df03e95419b4a5147c506b08, type: 3}
 --- !u!1 &810932266
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,6 +298,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 670017069}
   smoothing: 5
+--- !u!1 &1189472544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1189472545}
+  m_Layer: 0
+  m_Name: ZomBearSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1189472545
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1189472544}
+  m_LocalRotation: {x: 0, y: .920504808, z: 0, w: -.390731275}
+  m_LocalPosition: {x: 21.9599991, y: 0, z: 15.29}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!1001 &1273841355
 Prefab:
   m_ObjectHideFlags: 0
@@ -372,3 +459,84 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d264cd680c2b6db4dbd49bde4335c43b, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1938909410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1938909412}
+  - 114: {fileID: 1938909411}
+  - 114: {fileID: 1938909413}
+  - 114: {fileID: 1938909414}
+  m_Layer: 0
+  m_Name: EnemyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1938909411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1938909410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a99222b1e4a384e923ac7e86efc709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 670017071}
+  enemy: {fileID: 100002, guid: 840dcf979c84d2a4eb0c44abce7e2427, type: 2}
+  SpawnWaitTime: 2
+  spawnTime: 3
+  spawnPoints:
+  - {fileID: 569067384}
+--- !u!4 &1938909412
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1938909410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.9599991, y: 0, z: 15.29}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+--- !u!114 &1938909413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1938909410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a99222b1e4a384e923ac7e86efc709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 670017071}
+  enemy: {fileID: 141082, guid: ffdde77c7de2ec246907b187471ed7d0, type: 2}
+  SpawnWaitTime: 2
+  spawnTime: 3
+  spawnPoints:
+  - {fileID: 1189472545}
+--- !u!114 &1938909414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1938909410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a99222b1e4a384e923ac7e86efc709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 670017071}
+  enemy: {fileID: 124394, guid: 2f8e5dcb17eda3542bf9cd4ef63425e3, type: 2}
+  SpawnWaitTime: 6
+  spawnTime: 3
+  spawnPoints:
+  - {fileID: 423734713}
