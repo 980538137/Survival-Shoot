@@ -4,10 +4,13 @@ public class EnemyHealth : MonoBehaviour
 {
     public int startingHealth = 100;
     public int currentHealth;
+	public float sinkSpeed = 2.5f;
 
     Animator anim;
 
     bool isDead;
+
+	bool isSinking;
 
     CapsuleCollider capsuleCollider;
     ParticleSystem hitParticles;
@@ -20,6 +23,14 @@ public class EnemyHealth : MonoBehaviour
         hitParticles = GetComponentInChildren<ParticleSystem>();
 
     }
+
+	void Update()
+	{
+		if (isSinking) {
+			transform.Translate(-Vector3.up * sinkSpeed * Time.deltaTime);
+		}
+	}
+
 
     public void TakeDamage(int amount,Vector3 hitPoint)
     {
@@ -47,8 +58,10 @@ public class EnemyHealth : MonoBehaviour
 
     public void StartSinking()
     {
-        print("StartSinking");
+
         GetComponent<NavMeshAgent>().enabled = false;//去除导航效果
+		GetComponent<Rigidbody> ().isKinematic = true;
+		isSinking = true;
         Destroy(gameObject, 2f);//销毁物体
     }
 }
