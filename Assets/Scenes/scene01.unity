@@ -456,6 +456,10 @@ Prefab:
       propertyPath: damagePerShot
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5416356, guid: d264cd680c2b6db4dbd49bde4335c43b, type: 2}
+      propertyPath: m_Constraints
+      value: 84
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d264cd680c2b6db4dbd49bde4335c43b, type: 2}
   m_IsPrefabParent: 0
