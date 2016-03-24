@@ -48,7 +48,7 @@ public class EnemyHealth : MonoBehaviour
     public void StartSinking()
     {
         print("StartSinking");
-        //GetComponent<NavMeshAgent>().enabled = false;//去除导航效果
+        GetComponent<NavMeshAgent>().enabled = false;//去除导航效果
         Destroy(gameObject, 2f);//销毁物体
     }
 }
