@@ -16,6 +16,8 @@ public class PlayerShooting : MonoBehaviour
     Light gunLight;
     float effectsDisplayTime = 0.2f;//枪支开火时播放效果的持续时间的百分比
 
+	AudioSource playerShootAudio;
+
     void Awake()
     {
         shootableMask = LayerMask.GetMask("Shootable");
@@ -23,6 +25,7 @@ public class PlayerShooting : MonoBehaviour
         gunParticles = GetComponent<ParticleSystem>();
         gunLine = GetComponent<LineRenderer>();
         gunLight = GetComponent<Light>();
+		playerShootAudio = GetComponent<AudioSource> ();
 
     }
 
@@ -50,6 +53,7 @@ public class PlayerShooting : MonoBehaviour
 
     void Shoot()
     {
+		playerShootAudio.Play ();
         timer = 0f;
         gunLight.enabled = true;
         gunParticles.Stop();

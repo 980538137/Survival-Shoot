@@ -5,6 +5,7 @@ public class EnemyHealth : MonoBehaviour
     public int startingHealth = 100;
     public int currentHealth;
 	public float sinkSpeed = 2.5f;
+	public AudioClip deathClip;
 
     Animator anim;
 
@@ -14,6 +15,7 @@ public class EnemyHealth : MonoBehaviour
 
     CapsuleCollider capsuleCollider;
     ParticleSystem hitParticles;
+	AudioSource enemyAudioSource;
 
     void Awake()
     {
@@ -21,6 +23,7 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = startingHealth;
         capsuleCollider = GetComponent<CapsuleCollider>();
         hitParticles = GetComponentInChildren<ParticleSystem>();
+		enemyAudioSource = GetComponent<AudioSource> ();
 
     }
 
@@ -39,6 +42,7 @@ public class EnemyHealth : MonoBehaviour
             return;
         }
         currentHealth -= amount;
+		enemyAudioSource.Play ();
 
         hitParticles.transform.position = hitPoint;//设置例子效果播放的位置
         hitParticles.Play();
@@ -54,6 +58,9 @@ public class EnemyHealth : MonoBehaviour
         isDead = true;
         capsuleCollider.isTrigger = true;//变成触发器，不会挡住子弹的射线
         anim.SetTrigger("Dead");
+
+		enemyAudioSource.clip = deathClip;
+		enemyAudioSource.Play ();
     }
 
     public void StartSinking()
