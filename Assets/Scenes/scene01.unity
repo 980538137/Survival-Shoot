@@ -457,7 +457,7 @@ Light:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1735736007}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 6
   m_Type: 0
   m_Color: {r: 1, g: .950811327, b: .286764681, a: 1}
@@ -469,12 +469,12 @@ Light:
     m_Type: 1
     m_Resolution: -1
     m_Strength: 1
-    m_Bias: 1.01999998
+    m_Bias: 1.51999998
     m_NormalBias: 2.4000001
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1690,6 +1690,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c63be2a8918c741863160b9d9da122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerShot: 20
-  timeBetweenBullets: .150000006
+  damagePerShot: 5
+  timeBetweenBullets: .100000001
   range: 100

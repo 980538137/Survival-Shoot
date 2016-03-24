@@ -51,7 +51,6 @@ public class EnemyAttack : MonoBehaviour
         //如果角色死亡,怪物切换到空闲动画
         if (playerHealth.currentHealth <= 0)
         {
-            print("PlayerDead");
             anim.SetTrigger("PlayerDead");//播放怪物空闲动画
         }
     }
