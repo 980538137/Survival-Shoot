@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnitySampleAssets.CrossPlatformInput;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -7,21 +8,29 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody playerRigidbody;
 
     Animator anim;
-
-    int floorMask;
-    float camRayLength = 100f;
+#if !MOBILE_INPUT
+	int floorMask;
+	float camRayLength = 100f;
+#endif
+    
 
     void Awake()
     {
-        floorMask = LayerMask.GetMask("Floor");
+#if !MOBILE_INPUT
+		floorMask = LayerMask.GetMask("Floor");
+#endif
+        
         playerRigidbody = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
     }
 
     void FixedUpdate()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+//        float h = Input.GetAxisRaw("Horizontal");
+//        float v = Input.GetAxisRaw("Vertical");
+		float h = CrossPlatformInputManager.GetAxisRaw("Horizontal");
+		float v = CrossPlatformInputManager.GetAxisRaw("Vertical");
+		print ("H:" + h + "  V:" + v);
         Move(h, v);
         Animating(h, v);
         Turning();
@@ -46,16 +55,29 @@ public class PlayerMovement : MonoBehaviour
 
     void Turning()
     {
-        Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);//根据当前鼠标的位置，从摄像机发射一条射线，返回射线
-        RaycastHit floorHit;
-        if (Physics.Raycast(camRay, out floorHit, camRayLength, floorMask))
-        {
-            Vector3 playerToMouse = floorHit.point - transform.position;
-            playerToMouse.y = 0;
-            Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
-            playerRigidbody.MoveRotation(newRotation);
+#if !MOBILE_INPUT
+		Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);//根据当前鼠标的位置，从摄像机发射一条射线，返回射线
+		RaycastHit floorHit;
+		if (Physics.Raycast(camRay, out floorHit, camRayLength, floorMask))
+		{
+			Vector3 playerToMouse = floorHit.point - transform.position;
+			playerToMouse.y = 0f;
+			Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
+			playerRigidbody.MoveRotation(newRotation);
+			
+			
+		}
 
-             
-        }
+#else
+		Vector3 turnDir = new Vector3(CrossPlatformInputManager.GetAxisRaw("Mouse X"),0f,CrossPlatformInputManager.GetAxisRaw("Mouse Y"));
+		if(turnDir != Vector3.zero)
+		{
+			Vector3 playerToMouse = (transform.position + turnDir) - transform.position;
+			playerToMouse.y = 0f;
+			Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
+			playerRigidbody.MoveRotation(newRotation);
+		}
+#endif
+        
     }
 }

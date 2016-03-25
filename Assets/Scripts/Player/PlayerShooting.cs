@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnitySampleAssets.CrossPlatformInput;
 
 public class PlayerShooting : MonoBehaviour
 {
@@ -32,11 +33,19 @@ public class PlayerShooting : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+#if !MOBILE_INPUT
+		if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
+		{
+			Shoot();
+		}
 
-        if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
-        {
-            Shoot();
-        }
+#else
+		if(CrossPlatformInputManager.GetAxisFaw("Mouse X") != 0 && CrossPlatformInputManager.GetAxisFaw("Mouse Y") != 0 && timer >= timeBetweenBullets)
+		{
+			Shoot ();
+		}
+#endif
+        
 
         if (timer >= timeBetweenBullets * effectsDisplayTime)
         {
