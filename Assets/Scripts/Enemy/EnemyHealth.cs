@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -65,7 +66,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void StartSinking()
     {
-
+		ScoreManager.score += 10;
         GetComponent<NavMeshAgent>().enabled = false;//去除导航效果
 		GetComponent<Rigidbody> ().isKinematic = true;
 		isSinking = true;
